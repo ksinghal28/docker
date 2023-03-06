@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 #Install packages
 
-RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r"))'
+RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r", "future"))'
 RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex"))'
 RUN Rscript -e 'devtools::install_github("immunogenomics/harmony")'
 RUN Rscript -e 'devtools::install_github("powellgenomicslab/scPred")'
