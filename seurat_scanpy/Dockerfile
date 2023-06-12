@@ -19,3 +19,4 @@ RUN Rscript -e 'remotes::install_github("satijalab/seurat-wrappers")'
 RUN pip3 install numpy
 RUN pip3 install pandas
 RUN pip3 install scanpy
+RUN pip3 install leidenalg
