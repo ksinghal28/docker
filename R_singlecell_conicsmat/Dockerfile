@@ -26,7 +26,7 @@ RUN cd bedtools2 && make
 #Install packages
 
 RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r", "future", "beanplot", "mixtools", "pheatmap", "zoo", "squash"))'
-RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex"))'
+RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex", "biomaRt", "scran"))'
 RUN Rscript -e 'devtools::install_github("immunogenomics/harmony")'
 RUN Rscript -e 'devtools::install_github("powellgenomicslab/scPred")'
 RUN Rscript -e 'remotes::install_github("chris-mcginnis-ucsf/DoubletFinder")'
