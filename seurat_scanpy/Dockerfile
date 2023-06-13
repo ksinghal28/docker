@@ -21,5 +21,5 @@ RUN pip3 install pandas
 RUN pip3 install scanpy
 RUN pip3 install leidenalg
 RUN pip3 install decoupler
-
+RUN pip3 install omnipath
 
