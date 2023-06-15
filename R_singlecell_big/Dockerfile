@@ -24,8 +24,8 @@ RUN cd bedtools2 && make
 
 #Install R packages
 
-RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r", "future", "beanplot", "mixtools", "pheatmap", "zoo", "squash"))'
-RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex", "biomaRt", "scran", "scDblFinder"))'
+RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r", "future", "beanplot", "mixtools", "pheatmap", "zoo", "squash", "reticulate"))'
+RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex", "biomaRt", "scran", "scDblFinder", "SingleCellExperiment", "scater"))'
 RUN Rscript -e 'devtools::install_github("immunogenomics/harmony")'
 RUN Rscript -e 'devtools::install_github("powellgenomicslab/scPred")'
 RUN Rscript -e 'remotes::install_github("chris-mcginnis-ucsf/DoubletFinder")'
@@ -40,5 +40,5 @@ RUN pip3 install scanpy
 RUN pip3 install leidenalg
 RUN pip3 install decoupler
 RUN pip3 install omnipath
-
+RUN pip3 install anndata2ri
 
