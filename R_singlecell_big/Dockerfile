@@ -28,8 +28,10 @@ RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransfor
 RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex", "biomaRt", "scran", "scDblFinder", "SingleCellExperiment", "scater"))'
 RUN Rscript -e 'devtools::install_github("immunogenomics/harmony")'
 RUN Rscript -e 'devtools::install_github("powellgenomicslab/scPred")'
+RUN Rscript -e 'devtools::install_github("satijalab/seurat-data")'
 RUN Rscript -e 'remotes::install_github("chris-mcginnis-ucsf/DoubletFinder")'
 RUN Rscript -e 'remotes::install_github("satijalab/seurat-wrappers")'
+RUN Rscript -e 'remotes::install_github("mojaveazure/seurat-disk")'
 RUN Rscript -e 'devtools::install_github("diazlab/CONICS/CONICSmat", dep = FALSE)'
 
 #Install Python packages
@@ -42,3 +44,6 @@ RUN pip3 install decoupler
 RUN pip3 install omnipath
 RUN pip3 install anndata2ri
 RUN pip3 install rpy2
+
+
+
