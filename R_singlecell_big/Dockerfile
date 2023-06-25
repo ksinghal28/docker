@@ -44,6 +44,6 @@ RUN pip3 install decoupler
 RUN pip3 install omnipath
 RUN pip3 install anndata2ri
 RUN pip3 install rpy2
-
+RUN pip3 install celltypist
 
 
