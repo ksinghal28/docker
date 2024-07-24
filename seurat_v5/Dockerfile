@@ -1,22 +1,9 @@
-#Docker file for seurat v5
+FROM satijalab/seurat:5.0.0
 
-#Use singlecell_big as base image (tag1.3 as of making this docker)
-FROM ksinghal28/singlecell_big
-ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update --fix-missing && apt-get install -y build-essential libcurl4-openssl-dev libxml2-dev libhdf5-dev curl libssl-dev libxml2-dev git python3 jags libfontconfig1-dev r-cran-rjags time && apt-get clean
 
-
-#Install packages
-
-RUN Rscript -e 'install.packages(c("gridExtra", "ggplot2", "scales", "sctransform", "hdf5r", "future"))'
-RUN Rscript -e 'BiocManager::install(c("SingleR", "DropletUtils", "celldex"))'
-RUN Rscript -e 'devtools::install_github("immunogenomics/harmony")'
-RUN Rscript -e 'devtools::install_github("powellgenomicslab/scPred")'
-RUN Rscript -e 'remotes::install_github("satijalab/seurat", "seurat5", quiet=TRUE)'
-RUN Rscript -e 'remotes::install_github("satijalab/seurat-wrappers")'
-RUN Rscript -e 'remotes::install_github("satijalab/seurat-data", "seurat5", quiet = TRUE)'
-RUN Rscript -e 'remotes::install_github("satijalab/azimuth", "seurat5", quiet = TRUE)'
-RUN Rscript -e 'remotes::install_github("satijalab/seurat-wrappers", "seurat5", quiet = TRUE)'
-RUN Rscript -e 'remotes::install_github("stuart-lab/signac", "seurat5", quiet = TRUE)'
-RUN Rscript -e 'remotes::install_github("bnprks/BPCells", quiet = TRUE)'
-
-
+RUN Rscript -e "install.packages(c('remotes','BiocManager','rsvd'), repo = 'https://cran.wustl.edu/' , dependencies=TRUE)"
+RUN Rscript -e "BiocManager::install(c('hexbin','SummarizedExperiment','glmGamPoi','SingleR','celldex','biomaRt','SingleCellExperiment','escape'), ask = FALSE)"
+#RUN Rscript -e "devtools::install_github('ncborcherding/escape')"
